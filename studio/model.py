@@ -45,7 +45,7 @@ def get_config(config_file=None):
             continue
 
         with(open(path)) as f:
-            config = yaml.load(f.read(), Loader=yaml.FullLoader)
+            config = yaml.load(f.read(), Loader=yaml.SafeLoader)
 
             def replace_with_env(config):
                 for key, value in six.iteritems(config):
